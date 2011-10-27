@@ -6,59 +6,59 @@ Mnml (pronounced *minimal*) is a general purpose markup language specifically de
 
 Mnml has a really simple structure so a quick look at the following example document explains all the characteristics of the format:
 
-  # This is a mnml document.
-  # A pound at the beginning of the line indicates a comment.
+    # This is a mnml document.
+    # A pound at the beginning of the line indicates a comment.
 
-  # The basic building block of a mnml document is called a tag. The
-  # simplest form of a tag is just a tag name, like this:
-  object
+    # The basic building block of a mnml document is called a tag. The
+    # simplest form of a tag is just a tag name, like this:
+    object
 
-  # Note that there is no fixed set of tags, the choice of tags used
-  # is left to the program that is used to interpret the tags. This
-  # means that you can use mnml to design your own config file format,
-  # text document or DSL.
+    # Note that there is no fixed set of tags, the choice of tags used
+    # is left to the program that is used to interpret the tags. This
+    # means that you can use mnml to design your own config file format,
+    # text document or DSL.
 
-  # A tag can have optional keyword arguments. The value of these
-  # arguments may be an unquoted set of characters or a quoted string
-  # if the value contains whitespace. Mnml treats all values as strings,
-  # but you may interpret them as you wish.
-  font family="Helvetica Neue" size=20 weight=bold
+    # A tag can have optional keyword arguments. The value of these
+    # arguments may be an unquoted set of characters or a quoted string
+    # if the value contains whitespace. Mnml treats all values as strings,
+    # but you may interpret them as you wish.
+    font family="Helvetica Neue" size=20 weight=bold
 
-  # A tag also has a text value associated with it. Everything after the
-  # arguments (if they exist) or the tag name is used as the text value.
-  # Here are some examples:
-  title The Magnificent Page
-  task owner="John Doe" due=tomorrow Take out the trash
+    # A tag also has a text value associated with it. Everything after the
+    # arguments (if they exist) or the tag name is used as the text value.
+    # Here are some examples:
+    title The Magnificent Page
+    task owner="John Doe" due=tomorrow Take out the trash
 
-  # Sometimes a single line of text content is not enough. For this mnml
-  # provides heredocs. A heredoc is basically an indented multiline
-  # string. It is indicated by placing an arrow at the end of the line.
-  # Here is an example:
-  paragraph color=red ->
-    This is a long piece of text.
-    It can span multiple lines.
+    # Sometimes a single line of text content is not enough. For this mnml
+    # provides heredocs. A heredoc is basically an indented multiline
+    # string. It is indicated by placing an arrow at the end of the line.
+    # Here is an example:
+    paragraph color=red ->
+      This is a long piece of text.
+      It can span multiple lines.
 
-    Line breaks are preserved.
-      And so is any extra indentation.
-    Trailing newlines are removed.
+      Line breaks are preserved.
+        And so is any extra indentation.
+      Trailing newlines are removed.
 
-  # The heredoc maintains any additional indentation after the first line
-  # (which defines the left margin), so it is perfectly suited for code,
-  # markup or anything else that has significant whitespace.
+    # The heredoc maintains any additional indentation after the first line
+    # (which defines the left margin), so it is perfectly suited for code,
+    # markup or anything else that has significant whitespace.
 
-  # Now, a tree-based markup language is not complete without any ability
-  # nest tags, so mnml also supports this, in a similar fashion to Haml
-  # or Python:
-  window
-    title My Program Window
-    groupbox Some checkboxes to click on
-      checkbox First item
-      checkbox Second item
+    # Now, a tree-based markup language is not complete without any ability
+    # nest tags, so mnml also supports this, in a similar fashion to Haml
+    # or Python:
+    window
+      title My Program Window
+      groupbox Some checkboxes to click on
+        checkbox First item
+        checkbox Second item
 
-    sidebar width=narrow
-      label Hello World!
+      sidebar width=narrow
+        label Hello World!
 
-  # Note: heredocs and child tags are mutually exclusive!
+    # Note: heredocs and child tags are mutually exclusive!
 
 ## Parser usage
 
