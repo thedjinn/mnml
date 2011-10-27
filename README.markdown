@@ -64,37 +64,37 @@ Mnml has a really simple structure so a quick look at the following example docu
 
 Reading a mnml file in your Node.js project is really simple. First make sure you have the `mnml` package installed:
 
-  npm install mnml
+    npm install mnml
 
 Then for parsing a file you can use the following snippet of code:
 
-  var mnml = require("mnml");
+    var mnml = require("mnml");
 
-  mnml.parseFile("path/to/file.mnml", function(ast) {
-      console.log(ast);
-  });
+    mnml.parseFile("path/to/file.mnml", function(ast) {
+        console.log(ast);
+    });
 
 The `parseFile` function accepts a callback which is called with the abstract syntax tree of the document. The AST is represented as a tree of objects with the following structure:
 
-  {
-      name: "task",
-      args: {
-          owner: "John Doe",
-          due: "tomorrow"
-      },
-      text: "Take out the trash",
-      children: []
-  }
+    {
+        name: "task",
+        args: {
+            owner: "John Doe",
+            due: "tomorrow"
+        },
+        text: "Take out the trash",
+        children: []
+    }
 
 The value passed to the parse callback is an array of these objects. When there is no text given the `text` property is an empty string.
 
 Additionally, you may also want to parse a file synchronously:
 
-  var ast = mnml.parseFileSync("path/to/file.mnml");
+    var ast = mnml.parseFileSync("path/to/file.mnml");
 
 In some cases you don't want to deal with files but directly parse a string. This is also possible:
 
-  var ast = mnml.parse("foo bar=baz");
+    var ast = mnml.parse("foo bar=baz");
 
 ## Contributing
 
