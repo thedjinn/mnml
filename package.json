@@ -1,0 +1,19 @@
+{
+  "author": "Emil Loer <emil@koffietijd.net> (http://emilloer.com)",
+  "name": "mnml",
+  "description": "Minimalistic general purpose markup language",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thedjinn/mnml.git"
+  },
+  "main": "lib/mnml",
+  "scripts": {
+    "test": "make test"
+  },
+  "engines": {
+    "node": "~v0.4.7"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
