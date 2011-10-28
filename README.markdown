@@ -62,6 +62,8 @@ Mnml has a really simple structure so a quick look at the following example docu
 
 ## Parser usage
 
+### Node.js
+
 Reading a mnml file in your Node.js project is really simple. First make sure you have the `mnml` package installed:
 
     npm install mnml
@@ -93,6 +95,18 @@ Additionally, you may also want to parse a file synchronously:
     var ast = mnml.parseFileSync("path/to/file.mnml");
 
 In some cases you don't want to deal with files but directly parse a string. This is also possible:
+
+    var ast = mnml.parse("foo bar=baz");
+
+### Browser
+
+You can parse mnml strings inside the browser too. A browser-ready version of the mnml parser can be found in the `browser` directory of the Git repository. 
+
+To use it, first make sure to load the script. You can choose between a normal and a minified version.
+
+    <script src="mnml.min.js"></script>
+
+Now you are ready to parse strings:
 
     var ast = mnml.parse("foo bar=baz");
 
