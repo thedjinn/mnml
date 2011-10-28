@@ -4,7 +4,12 @@ test: all
 	vows --spec
 
 clean:
-	rm lib/*.js
+	rm lib/core.js
+	rm lib/mnml.js
+	rm lib/filehandling.js
+	rm lib/parser.js
+	rm browser/mnml.js
+	rm browser/mnml.min.js
 
 src:
 	pegjs src/parser.pegjs lib/parser.js
