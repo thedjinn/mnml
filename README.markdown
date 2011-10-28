@@ -46,8 +46,8 @@ Mnml has a really simple structure so a quick look at the following example docu
     # (which defines the left margin), so it is perfectly suited for code,
     # markup or anything else that has significant whitespace.
 
-    # Now, a tree-based markup language is not complete without any ability
-    # nest tags, so mnml also supports this, in a similar fashion to Haml
+    # Now, a tree-based markup language is not complete without the ability
+    # to nest tags, so mnml also supports this, in a similar fashion to Haml
     # or Python:
     window
       title My Program Window
