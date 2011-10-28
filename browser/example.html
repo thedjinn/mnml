@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>mnml browser example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <script src="mnml.min.js"></script>
+        <script>
+            var data = "hello this=is a=\"mnml\" example document\n  with nesting\n";
+
+            console.log(mnml.parse(data));
+        </script>
+    </body>
+</html>
