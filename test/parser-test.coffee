@@ -84,6 +84,12 @@ vows.describe("parser").addBatch
       assert.deepEqual result[1].args, {arg4: "", arg5: "fifth value"}
       assert.deepEqual result[2].args, {arg6: "the longest value is the sixth one"}
 
+    "accepts single character argument names": ->
+      result = mnml.parse "foo x=hello y=\"world\" text"
+      assert.equal result.length, 1
+      assert.deepEqual result[0].args, {x: "hello", y: "world"}
+      assert.equal result[0].text, "text"
+
     "accepts nested tags": ->
       result = mnml.parse """
                           first with text

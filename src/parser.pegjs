@@ -34,7 +34,7 @@ value "value"
   / value:[a-zA-Z0-9_-]* { return value.join(""); }
 
 identifier "identifier"
-  = head:[a-zA-Z_] tail:[a-zA-Z0-9_]+ { return head + tail.join(""); }
+  = head:[a-zA-Z_] tail:[a-zA-Z0-9_]* { return head + tail.join(""); }
 
 whitespace "whitespace"
   = [ \t]+
