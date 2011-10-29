@@ -110,6 +110,10 @@ Now you are ready to parse strings:
 
     var ast = mnml.parse("foo bar=baz");
 
+## Vim plugin
+
+If you want to edit mnml files in Vim then have a look at the [vim-mnml](https://github.com/thedjinn/vim-mnml) plugin. This plugin adds both syntax highlighting and indentation support for the mnml file format. Files which have the `mnml` extension will automatically use it.
+
 ## Contributing
 
 If you want to file a bug report for a parser issue, then please provide a failing test.
