@@ -100,7 +100,7 @@ In some cases you don't want to deal with files but directly parse a string. Thi
 
 ### Browser
 
-You can parse mnml strings inside the browser too. A browser-ready version of the mnml parser can be found in the `browser` directory of the Git repository. 
+You can parse mnml strings inside the browser too. A browser-ready version of the mnml parser can be found in the `browser` directory of the Git repository.
 
 To use it, first make sure to load the script. You can choose between a normal and a minified version.
 
@@ -131,7 +131,7 @@ Please do not mess around with the makefile or package description files. Also, 
 
 ## License
 
-Copyright (c) 2011 Emil Loer <http://emilloer.com>
+Copyright (c) 2011 [Emil Loer](http://emilloer.com).
 
 Permission  is  hereby granted, free of charge, to any person obtaining a copy of  this  software  and  associated  documentation files  (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:
 
