@@ -30,8 +30,12 @@ argument "key/value pair"
   = whitespace key:identifier "=" value:value { return {key:key, value:value}; }
 
 value "value"
-  = '"' value:[^"]* '"'  { return value.join(""); }
+  = '"' value:quotedchar* '"'  { return value.join(""); }
   / value:[a-zA-Z0-9_-]* { return value.join(""); }
+
+quotedchar
+  = "\\\"" { return "\""; }
+  / [^"]
 
 identifier "identifier"
   = head:[a-zA-Z_] tail:[a-zA-Z0-9_]* { return head + tail.join(""); }

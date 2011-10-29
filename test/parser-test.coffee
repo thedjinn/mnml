@@ -84,6 +84,13 @@ vows.describe("parser").addBatch
       assert.deepEqual result[1].args, {arg4: "", arg5: "fifth value"}
       assert.deepEqual result[2].args, {arg6: "the longest value is the sixth one"}
 
+    "accepts escaped quotes in quoted arguments": ->
+      result = mnml.parse """
+                          foo arg1="hello\\"world" arg2=test
+                          """
+      assert.equal result.length, 1
+      assert.deepEqual result[0].args, {arg1: "hello\"world", arg2: "test"}
+
     "accepts single character argument names": ->
       result = mnml.parse "foo x=hello y=\"world\" text"
       assert.equal result.length, 1
