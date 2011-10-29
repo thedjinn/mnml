@@ -4,7 +4,7 @@ Mnml (pronounced *minimal*) is a general purpose markup language specifically de
 
 ## Example document
 
-Mnml has a really simple structure so a quick look at the following example document explains all the characteristics of the format:
+Mnml has a really simple structure so a quick look at the following example document should explain all the characteristics of the format:
 
     # This is a mnml document.
     # A pound at the beginning of the line indicates a comment.
