@@ -20,6 +20,7 @@ if (typeof module === "undefined") { var mnml = this.mnml = {}; } else { var mnm
         "node": parse_node,
         "nodehead": parse_nodehead,
         "nodelist": parse_nodelist,
+        "quotedchar": parse_quotedchar,
         "rawtext": parse_rawtext,
         "textline": parse_textline,
         "value": parse_value,
@@ -534,26 +535,10 @@ if (typeof module === "undefined") { var mnml = this.mnml = {}; } else { var mnm
         }
         if (result8 !== null) {
           var result9 = [];
-          if (input.substr(pos).match(/^[^"]/) !== null) {
-            var result11 = input.charAt(pos);
-            pos++;
-          } else {
-            var result11 = null;
-            if (reportMatchFailures) {
-              matchFailed("[^\"]");
-            }
-          }
+          var result11 = parse_quotedchar();
           while (result11 !== null) {
             result9.push(result11);
-            if (input.substr(pos).match(/^[^"]/) !== null) {
-              var result11 = input.charAt(pos);
-              pos++;
-            } else {
-              var result11 = null;
-              if (reportMatchFailures) {
-                matchFailed("[^\"]");
-              }
-            }
+            var result11 = parse_quotedchar();
           }
           if (result9 !== null) {
             if (input.substr(pos, 1) === "\"") {
@@ -633,6 +618,62 @@ if (typeof module === "undefined") { var mnml = this.mnml = {}; } else { var mnm
         if (reportMatchFailures && result0 === null) {
           matchFailed("value");
         }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_quotedchar() {
+        var cacheKey = 'quotedchar@' + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        
+        var savedPos0 = pos;
+        if (input.substr(pos, 2) === "\\\"") {
+          var result3 = "\\\"";
+          pos += 2;
+        } else {
+          var result3 = null;
+          if (reportMatchFailures) {
+            matchFailed("\"\\\\\\\"\"");
+          }
+        }
+        var result4 = result3 !== null
+          ? (function() { return "\""; })()
+          : null;
+        if (result4 !== null) {
+          var result2 = result4;
+        } else {
+          var result2 = null;
+          pos = savedPos0;
+        }
+        if (result2 !== null) {
+          var result0 = result2;
+        } else {
+          if (input.substr(pos).match(/^[^"]/) !== null) {
+            var result1 = input.charAt(pos);
+            pos++;
+          } else {
+            var result1 = null;
+            if (reportMatchFailures) {
+              matchFailed("[^\"]");
+            }
+          }
+          if (result1 !== null) {
+            var result0 = result1;
+          } else {
+            var result0 = null;;
+          };
+        }
+        
+        
         
         cache[cacheKey] = {
           nextPos: pos,
