@@ -1,0 +1,21 @@
+# This is an example usage of mnml as a data file for a fictional invoicing
+# application.
+# 
+# This particular example shows data for a collection item (an invoice). The
+# invoice has a bunch of metadata and two subcollections. By using a tag
+# without any arguments and text contents you can easily create a grouped
+# set of tags. 
+
+invoice id=123456 date="04-02-2011"
+  customer_address ->
+    Banana
+    1 Moebius Strip
+    Pucertino, AC 31337
+
+  products
+    item quantity=200 price=1.95 Nuts
+    item quantity=50 price=2.99 Bolts
+
+  services
+    task hours=4 rate=80.00 Reticulating the splines
+    task hours=7 rate=80.00 Calibrating the warp plasma conduit

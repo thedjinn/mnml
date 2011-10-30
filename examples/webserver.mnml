@@ -1,0 +1,41 @@
+# This is an example usage of mnml as a config file for a fictional web
+# server.
+#
+# Config files are usually very simple, either key-value pairs or nested
+# key-value pairs. The text contents of a tag are perfectly suited for this
+# purpose. When more specific (and possibly optional) options are required
+# we can use the tag argument list for this.
+#
+# Note that the heredoc syntax is perfectly suitable for inlining small
+# documents, as seen in the error page example.
+
+server port=80 protocol=http
+  location /
+    root /var/www/htdocs
+
+  location /~bob/webapp
+    root /home/bob/webapp/public
+    application type=rack /home/bob/webapp/config.ru
+
+  error_page code=500 ->
+    <html>
+      <head>
+        <title>500 Internal Server Error</title>
+      </head>
+      <body>
+        <h1>500 Internal Server Error</h1>
+        <p>
+          The server encountered an internal error while attempting to
+          fulfill your request.
+        </p>
+      </body>
+    </html>
+     
+server port=443 protocol=https
+  vhost example.com
+    location /
+      root /var/www/example.com/htdocs
+
+  vhost foo.example.com
+    location /
+      root /var/www/foo.example.com/htdocs

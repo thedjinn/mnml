@@ -1,0 +1,31 @@
+# This is an example usage of mnml as a document DSL for a fictional 
+# presentation application.
+#
+# This particular example shows how you can use mnml to structure and format
+# pieces of text. Because short lines can be placed on a single line,
+# together with the tag and arguments, the format is very compact and
+# expressive.
+
+title A Brief History Of Kittens On The Internet
+
+slide template=title
+  heading A Brief History Of Kittens On The Internet
+  subheading Powered by mnml
+
+slide
+  heading What is a kitten?
+  markdown ->
+    **kit-ten**: *noun*, a young cat; also: an immature or young individual
+    of various other small mammals.
+
+slide
+  heading What are lolcats? (1/2)
+  bullets
+    item Picture of cat
+    item Funny text added
+    item size=small Grammar not always correct
+
+slide
+  heading What are lolcats? (2/2)
+  paragraph color=red Best described with an image:
+  image lolcat.png
