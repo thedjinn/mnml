@@ -38,7 +38,7 @@ quotedchar
   / [^"]
 
 identifier "identifier"
-  = head:[a-zA-Z_] tail:[a-zA-Z0-9_]* { return head + tail.join(""); }
+  = head:[a-zA-Z_] tail:[a-zA-Z0-9\-_]* { return head + tail.join(""); }
 
 whitespace "whitespace"
   = [ \t]+

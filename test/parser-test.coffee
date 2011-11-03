@@ -97,6 +97,12 @@ vows.describe("parser").addBatch
       assert.deepEqual result[0].args, {x: "hello", y: "world"}
       assert.equal result[0].text, "text"
 
+    "accepts argument names with dashes and underscores": ->
+      result = mnml.parse "foo a_bc-def=\"value\" text"
+      assert.equal result.length, 1
+      assert.deepEqual result[0].args, {"a_bc-def": "value"}
+      assert.equal result[0].text, "text"
+
     "accepts nested tags": ->
       result = mnml.parse """
                           first with text
