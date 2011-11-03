@@ -705,24 +705,24 @@ if (typeof module === "undefined") { var mnml = this.mnml = {}; } else { var mnm
         }
         if (result3 !== null) {
           var result4 = [];
-          if (input.substr(pos).match(/^[a-zA-Z0-9_]/) !== null) {
+          if (input.substr(pos).match(/^[a-zA-Z0-9\-_]/) !== null) {
             var result5 = input.charAt(pos);
             pos++;
           } else {
             var result5 = null;
             if (reportMatchFailures) {
-              matchFailed("[a-zA-Z0-9_]");
+              matchFailed("[a-zA-Z0-9\\-_]");
             }
           }
           while (result5 !== null) {
             result4.push(result5);
-            if (input.substr(pos).match(/^[a-zA-Z0-9_]/) !== null) {
+            if (input.substr(pos).match(/^[a-zA-Z0-9\-_]/) !== null) {
               var result5 = input.charAt(pos);
               pos++;
             } else {
               var result5 = null;
               if (reportMatchFailures) {
-                matchFailed("[a-zA-Z0-9_]");
+                matchFailed("[a-zA-Z0-9\\-_]");
               }
             }
           }
